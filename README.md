@@ -64,7 +64,31 @@ rails db:create db:migrate
 </pre>
 
 
-# Important Gems Used
+# Usage
+
+This is what a recurring application charge looks like:
+<pre>
+{
+   name: "Test charge",
+   price: "10.00",
+   trial_days: 7,
+   test: true,
+   return_url: "https://d9870ffe.ngrok.io/recurring_application_charge/callback",
+   id: 22773776,
+   api_client_id: 1918472,
+   status: pending",
+   billing_on: nil,
+   created_at: 2017-12-17T07:46:32-05:00,   
+   updated_at: 2017-12-17T07:46:32-05:00,
+   activated_on: nil,
+   trial_ends_on: nil,
+   cancelled_on: nil,
+   decorated_return_url: "https://d9870ffe.ngrok.io/recurring_application_charge/callback?charge_id=22773776",
+   confirmation_url: "https://kuczmama.myshopify.com/admin/charges/22773776/confirm_recurring_application_charge?signature=BAhpBBCAWwE%3D--01914e5056e86c6e99b47c227905be8bffe242d1"
+}
+</pre>
+
+# Important Links
 ## Shopify App
 This gem includes a Rails Engine and generators for writing Rails applications using the Shopify API. The Engine provides a SessionsController and all the required code for authenticating with a shop via Oauth (other authentication methods are not supported).
 - Github: https://github.com/Shopify/shopify_app
@@ -81,3 +105,6 @@ The API is implemented as JSON over HTTP using all four verbs (GET/POST/PUT/DELE
 Shopify OAuth2 Strategy for OmniAuth 1.0.
 
 - Github: https://github.com/Shopify/omniauth-shopify-oauth2
+
+## Billing Demo App
+A large portion of this was based off of the **Billing Demo App** Found here.  https://github.com/Shopify/billing-demo-app
