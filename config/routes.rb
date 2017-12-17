@@ -7,5 +7,12 @@ Rails.application.routes.draw do
     get 'logout' => :destroy, :as => :logout
   end
 
+  resource :recurring_application_charge, only: [:show, :create, :destroy] do
+    collection do
+      get :callback
+      post :customize
+    end
+  end
+
   root :to => 'home#index'
 end
