@@ -42,6 +42,7 @@ Install NGROK at https://ngrok.com/download.
 # Installation
 
 ## 1. Configure Environment Variables
+In `/config/initializers/shopify_app.rb` 
 Set the environment variables that you got in the previous set for `SHOPIFY_APP_API_KEY` and `SHOPIFY_APP_API_SECRET`. 
 
 You should be able to get them from 
