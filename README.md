@@ -59,6 +59,24 @@ end
 
 </pre>
 
+## 2. Set Charge Options
+Set the charge options in `config/secrets.yml`
+It should look something like this:
+<pre>
+shared:
+  recurring_charge_name: Test Recurring Charge
+  recurring_charge_price: 10
+  recurring_charge_capped_amount: 50
+  recurring_charge_terms: This is important terms
+  recurring_charge_trial_days: 7
+  is_test_charge: true
+</pre>
+
+This will set the options in shopify as seen below.
+
+<img src='./public/images/readme/approval-page.png' />
+
+
 ## 2. Run Migrations
 <pre>
 rails db:create db:migrate

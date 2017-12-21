@@ -8,14 +8,14 @@ class RecurringApplicationChargesController < AuthenticatedController
     @recurring_application_charge.try!(:cancel)
 
     recurring_charge = {}
-    recurring_charge[:recurring_charge_name] = Rails.application.secrets.recurring_charge_name
-    recurring_charge[:recurring_charge_price] = Rails.application.secrets.recurring_charge_price
-    recurring_charge[:recurring_charge_capped_amount] = Rails.application.secrets.recurring_charge_capped_amount
-    recurring_charge[:recurring_charge_terms] = Rails.application.secrets.recurring_charge_terms
-    recurring_charge[:recurring_charge_trial_days] = Rails.application.secrets.recurring_charge_trial_days
+    recurring_charge[:name] = Rails.application.secrets.recurring_charge_name
+    recurring_charge[:price] = Rails.application.secrets.recurring_charge_price
+    recurring_charge[:capped_amount] = Rails.application.secrets.recurring_charge_capped_amount
+    recurring_charge[:terms] = Rails.application.secrets.recurring_charge_terms
+    recurring_charge[:trial_days] = Rails.application.secrets.recurring_charge_trial_days
 
     @recurring_application_charge = ShopifyAPI::RecurringApplicationCharge.new({recurring_application_charge: recurring_charge})
-    @recurring_application_charge.test = true
+    @recurring_application_charge.test = Rails.application.secrets.is_test_charge
     @recurring_application_charge.return_url = callback_recurring_application_charge_url
 
     if @recurring_application_charge.save
