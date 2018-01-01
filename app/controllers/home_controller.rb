@@ -18,6 +18,14 @@ class HomeController < ShopifyApp::AuthenticatedController
       end
       return
     end
+    add_script_tag
     render 'index'
+  end
+
+  def add_script_tag
+    script_tag = ShopifyAPI::ScriptTag.new
+    script_tag.event = "onload"
+    script_tag.src = "https://www.mkucz.com/assets/js/shopify/sticky-button.js?shop=#{ShopifyAPI::Shop.current.domain}"
+    script_tag.save
   end
 end
