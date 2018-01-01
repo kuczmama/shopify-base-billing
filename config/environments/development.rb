@@ -6,6 +6,8 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  Rails.application.routes.default_url_options[:host] = Rails.application.secrets.host
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -18,7 +20,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}",
     }
   else
     config.action_controller.perform_caching = false

@@ -1,6 +1,6 @@
 # Shopify Base Billing
 
-This is a starter app with recurring base billing setup.  This app will get you quickly started with a working shopify application.
+This is a starter app with recurring base billing setup.  This app will get you quickly started with a working shopify application. 
 
 # Setup
 ## 1. Create an account
@@ -66,10 +66,15 @@ It should look something like this:
 shared:
   recurring_charge_name: Test Recurring Charge
   recurring_charge_price: 10
-  recurring_charge_capped_amount: 50
   recurring_charge_terms: This is important terms
   recurring_charge_trial_days: 7
   is_test_charge: true
+
+development:
+  host: https://c72a0e96.ngrok.io
+
+production:
+  host: your production host here ie: https://c72a0e96.ngrok.io or https://example.com
 </pre>
 
 This will set the options in shopify as seen below.
@@ -127,3 +132,6 @@ Shopify OAuth2 Strategy for OmniAuth 1.0.
 
 ## Billing Demo App
 A large portion of this was based off of the **Billing Demo App** Found here.  https://github.com/Shopify/billing-demo-app
+
+## Notes
+- This is ONLY for recurring application charges.  It will not include single time fees or usage charges.  It is only good for apps that want to charge a monthly subscription cost.  That's it.
